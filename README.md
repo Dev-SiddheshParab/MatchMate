@@ -1,4 +1,4 @@
-# MatchMate – Matchmaking App 💖
+# MatchMate – Matchmaking App 🫶
 
 MatchMate is a matchmaking iOS application built using SwiftUI, MVVM architecture, Core Data, and REST APIs.
 The app demonstrates modern iOS development practices including offline support, clean architecture, asynchronous networking and local persistence concepts.

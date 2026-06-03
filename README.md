@@ -139,11 +139,8 @@ MatchMate/
 
 # 📸 Screenshots
 
-<img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 - 2026-06-03 at 16 43 54" src="https://github.com/user-attachments/assets/dc67ae30-9ced-4a72-91c7-4aff7c286780" />
+<img width="1536" height="1024" alt="ChatGPT Image Jun 3, 2026 at 04_51_41 PM" src="https://github.com/user-attachments/assets/21523e53-c842-4a4f-b24b-b10aa414ab21" />
 
-<img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 - 2026-06-03 at 16 42 44" src="https://github.com/user-attachments/assets/19547057-0b2d-498b-97fa-d66c27e0acf4" />
-
-<img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 - 2026-06-03 at 16 43 01" src="https://github.com/user-attachments/assets/2d9654ba-e22a-4fba-a35d-fa4e1f5a2ca5" />
 
 ---
 

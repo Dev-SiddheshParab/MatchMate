@@ -16,11 +16,14 @@ struct MatchMateApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if appState.hasSeenOnboarding {
-                HomeView()
-            } else {
-                OnboardingView()
+            Group{
+                if appState.hasSeenOnboarding {
+                    HomeView()
+                } else {
+                    OnboardingView()
+                }
             }
+            .preferredColorScheme(.light)
         }
         .environment(appState)
     }

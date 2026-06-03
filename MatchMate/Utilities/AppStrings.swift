@@ -17,6 +17,7 @@ enum AppStrings {
     
     // MARK: - Error
     static let somethingWentWrong = "Something went wrong"
+    static let noInternetConnection = "No Internet Connection"
     
     // MARK: - Status
     static let accepted = "accepted"

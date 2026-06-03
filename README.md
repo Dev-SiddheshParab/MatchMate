@@ -1,7 +1,7 @@
-# MatchMate – AI Powered Matchmaking App 💖
+# MatchMate – Matchmaking App 💖
 
-MatchMate is an AI-powered matchmaking iOS application built using SwiftUI, MVVM architecture, Core Data, and REST APIs.
-The app demonstrates modern iOS development practices including offline support, clean architecture, asynchronous networking, local persistence, and intelligent matchmaking concepts.
+MatchMate is a matchmaking iOS application built using SwiftUI, MVVM architecture, Core Data, and REST APIs.
+The app demonstrates modern iOS development practices including offline support, clean architecture, asynchronous networking and local persistence concepts.
 
 ## ✨ Features
 
@@ -37,7 +37,7 @@ The app demonstrates modern iOS development practices including offline support,
 
 ### ⚡ Modern iOS Development
 
-* Swift Concurrency (`async/await`)
+* Swift Concurrency
 * MVVM Architecture
 * Observable ViewModels
 * Reusable SwiftUI components
@@ -79,9 +79,9 @@ Responsible for:
 * SwiftUI
 * MVVM
 * Core Data
-* Async/Await
+* Swift Concurrency
 * REST API
-* Xcode 16+
+* Xcode 26+
 
 ---
 
@@ -100,7 +100,7 @@ Responsible for:
 ## Requirements
 
 * macOS
-* Xcode 16+
+* Xcode 26+
 * iOS 17+
 
 ## Steps
@@ -139,7 +139,11 @@ MatchMate/
 
 # 📸 Screenshots
 
-*Add screenshots here*
+<img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 - 2026-06-03 at 16 43 54" src="https://github.com/user-attachments/assets/dc67ae30-9ced-4a72-91c7-4aff7c286780" />
+
+<img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 - 2026-06-03 at 16 42 44" src="https://github.com/user-attachments/assets/19547057-0b2d-498b-97fa-d66c27e0acf4" />
+
+<img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 - 2026-06-03 at 16 43 01" src="https://github.com/user-attachments/assets/2d9654ba-e22a-4fba-a35d-fa4e1f5a2ca5" />
 
 ---
 

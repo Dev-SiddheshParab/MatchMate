@@ -25,11 +25,7 @@ struct ProfileListView: View {
                 ForEach(ProfileFilter.allCases, id: \.self) { filter in
 
                     Button {
-
-                        withAnimation {
-
                             viewModel.selectedFilter = filter
-                        }
 
                     } label: {
 
@@ -120,45 +116,71 @@ private extension ProfileListView {
     }
     
     var profileListView: some View {
-        
-        ScrollView(
-            .vertical,
-            showsIndicators: false
-        ) {
-            
-            LazyVStack(spacing: 24) {
-                
-                ForEach(
-                    viewModel.filteredProfiles
-                ) { profile in
+        Group{
+            if viewModel.filteredProfiles.isEmpty{
+                ContentUnavailableView(emptyTitle, systemImage: emptyImage )
+            }else{
+                ScrollView(
+                    .vertical,
+                    showsIndicators: false
+                ) {
                     
-                    NavigationLink {
+                    LazyVStack(spacing: 24) {
                         
-                        ProfileDetailsView()
-                        
-                    } label: {
-                        
-                        ProfileListRow(
-                            onAccept: {
-                                viewModel.acceptProfile(
-                                    profile
+                        ForEach(
+                            viewModel.filteredProfiles
+                        ) { profile in
+                            
+                            NavigationLink {
+                                
+                                ProfileDetailsView()
+                                
+                            } label: {
+                                
+                                ProfileListRow(
+                                    onAccept: {
+                                        viewModel.acceptProfile(
+                                            profile
+                                        )
+                                    },
+                                    onDecline: {
+                                        viewModel.declineProfile(
+                                            profile
+                                        )
+                                    },
+                                    profile: profile
                                 )
-                            },
-                            onDecline: {
-                                viewModel.declineProfile(
-                                    profile
-                                )
-                            },
-                            profile: profile
-                        )
+                            }
+                            .buttonStyle(.plain)
+                        }
                     }
-                    .buttonStyle(.plain)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical)
                 }
             }
-            .padding(.horizontal, 20)
-            .padding(.vertical)
         }
     }
+    
+    // MARK: - Empty State
+       
+       var emptyTitle: String {
+           
+           switch viewModel.selectedFilter {
+               
+           case .all:
+               return "No Pending Requests"
+               
+           case .accepted:
+               return "No Accepted Requests"
+               
+           case .declined:
+               return "No Declined Requests"
+           }
+       }
+       
+       var emptyImage: String {
+           return "list.bullet.clipboard"
+       }
 }
 
 #Preview {

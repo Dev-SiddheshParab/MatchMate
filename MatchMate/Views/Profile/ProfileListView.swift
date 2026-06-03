@@ -133,21 +133,17 @@ private extension ProfileListView {
                             
                             NavigationLink {
                                 
-                                ProfileDetailsView()
+                                ProfileDetailsView(profile: profile)
                                 
                             } label: {
                                 
                                 ProfileListRow(
                                     onAccept: {
-                                        viewModel.acceptProfile(
-                                            profile
-                                        )
+                                        viewModel.acceptProfile(profile)
                                     },
                                     onDecline: {
-                                        viewModel.declineProfile(
-                                            profile
-                                        )
-                                    },
+                                        viewModel.declineProfile(profile)
+                                    }, hideButtons: false,
                                     profile: profile
                                 )
                             }

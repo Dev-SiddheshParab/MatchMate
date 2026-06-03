@@ -105,9 +105,13 @@ final class ProfileListViewModel {
     
     func fetchProfilesFromDB() throws {
         
-        profiles =
-        try repository
-            .fetchProfilesFromDB()
+        let fetchedProfiles =
+          try repository
+              .fetchProfilesFromDB()
+          
+          profiles = []
+          
+          profiles = fetchedProfiles
     }
     
     // MARK: - Accept

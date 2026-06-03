@@ -11,8 +11,10 @@ import SDWebImageSwiftUI
 struct ProfileListRow: View {
     let onAccept: () -> Void
     let onDecline: () -> Void
+    
+    let hideButtons:Bool
 
-    let profile: ProfileEntity
+    @ObservedObject var profile: ProfileEntity
     var body: some View {
         
         ZStack(alignment: .bottom){
@@ -20,7 +22,7 @@ struct ProfileListRow: View {
                 url: URL(string: profile.imageURL ?? "")
             )
             .resizable()
-            .aspectRatio(contentMode: .fill)
+            .aspectRatio(contentMode: .fit)
             .clipped()
             .frame(width: UIScreen.main.bounds.width - 40)
             .frame(height: UIScreen.main.bounds.height * 0.5)
@@ -36,102 +38,96 @@ struct ProfileListRow: View {
                     .font(.default)
                     .foregroundStyle(.white.opacity(0.95))
             
-                
-                
-                if profile.status != "accepted"{
-                    Button {
-                        
-                        // Decline Action
-                        onAccept()
-                        
-                    } label: {
-                        
-                        Text("Connect Now")
-                            .font(.default)
-                            .foregroundStyle(.accent)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 4)
-                            .background(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.accent, lineWidth: 1.5)
-                            )
-                    }
-                }else if profile.status == "declined"{
-                    Button {
-                        
-                        // Decline Action
-                        onAccept()
-                    } label: {
-                        
-                        Text("Changed Your Mind? Accept Now")
-                            .font(.default)
-                            .foregroundStyle(.green)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 4)
-                            .background(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.green, lineWidth: 1.5)
-                            )
-                    }
-                }else{
-                    HStack(spacing: 16) {
-                        
-                        Button {
-                            
-                            // Decline Action
-                            onDecline()
-                        } label: {
-                            
-                            Text(AppStrings.decline)
+                if hideButtons == false{
+                    if profile.status == "accepted"{
+            
+                            Text("Connect Now")
                                 .font(.default)
-                                .foregroundStyle(.gray)
+                                .foregroundStyle(.accent)
                                 .frame(maxWidth: .infinity)
+                                .frame(height: 40)
                                 .padding(.vertical, 4)
                                 .background(
                                     RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color.gray, lineWidth: 1.5)
+                                        .stroke(Color.accent, lineWidth: 1.5)
                                 )
-                        }
-                        
-                        Button {
+                    }else if profile.status == "declined"{
+//                            Text("Changed Your Mind? Accept Now")
+//                                .font(.default)
+//                                .foregroundStyle(.green)
+//                                .frame(maxWidth: .infinity)
+//                                .padding(.vertical, 4)
+//                                .background(
+//                                    RoundedRectangle(cornerRadius: 8)
+//                                        .stroke(Color.green, lineWidth: 1.5)
+//                                )
+                    }else{
+                        HStack(spacing: 16) {
                             
-                            // Accept Action
-                            onAccept()
-                        } label: {
+                            Button {
+                                
+                                // Decline Action
+                                onDecline()
+                            } label: {
+                                
+                                Text(AppStrings.decline)
+                                    .font(.default)
+                                    .foregroundStyle(.gray)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 4)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(Color.gray, lineWidth: 1.5)
+                                    )
+                            }
                             
-                            Text(AppStrings.accept)
-                                .font(.default)
-                                .foregroundStyle(.green)
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 4)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color.green, lineWidth: 1.5)
-                                )
+                            Button {
+                                
+                                // Accept Action
+                                onAccept()
+                            } label: {
+                                
+                                Text(AppStrings.accept)
+                                    .font(.default)
+                                    .foregroundStyle(.green)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 4)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(Color.green, lineWidth: 1.5)
+                                    )
+                            }
                         }
                     }
                 }
+                
+                
             }
             .padding()
         
         }
         .clipShape(RoundedRectangle(cornerRadius: 16))
+        .shadow(
+            color: .black.opacity(0.8),
+            radius: 10,
+            x: 0,
+            y: 6
+        )
         .overlay {
             RoundedRectangle(cornerRadius: 16)
                 .stroke(
                     LinearGradient(
                         colors: [
-                            .black,
-                            .black
+                            .black.opacity(0.8),
+                            .black.opacity(0.8)
                         ],
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     ),
-                    lineWidth: 2
+                    lineWidth: 0.5
                 )
         }
         .padding()
-       
     }
 }
 

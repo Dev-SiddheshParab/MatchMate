@@ -33,6 +33,7 @@ final class NetworkMonitor {
             Task { @MainActor in
                 self?.isConnected =
                 path.status == .satisfied
+                print("Connection : \(path.status)")
             }
         }
         
